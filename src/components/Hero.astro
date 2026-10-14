@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+// Asegúrate de tener una foto tuya en src/assets/
+import profilePic from '../assets/foto_dani.webp'; 
+---
+
+<section class="relative flex flex-col items-center justify-center min-h-[80vh] text-center z-10 pt-32 px-4">
+    
+    <!-- Fotografía con marco de neón -->
+    <div class="relative w-48 h-48 mb-8 group">
+        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <Image 
+            src={profilePic} 
+            alt="Daniel Alejandro Manrique Godinez" 
+            class="relative w-full h-full object-cover rounded-full border-2 border-cyan-400/50 shadow-[0_0_15px_rgba(34,211,238,0.5)]"
+        />
+    </div>
+
+    <!-- Nombre Completo -->
+    <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 drop-shadow-[0_0_10px_rgba(34,211,238,0.4)]">
+        Daniel Alejandro Manrique Godinez
+    </h1>
+    
+    <h2 class="text-xl text-purple-400 font-mono tracking-widest mb-10">
+        &lt;dan/mg&gt;
+    </h2>
+
+    <!-- Botones de descarga (CV y Llave Pública) -->
+    <div class="flex flex-col sm:flex-row gap-6">
+        <!-- El archivo del CV debe ir en la carpeta public/ -->
+        <a href="src/assets/Manrique_Godínez_Daniel_Alejandro_CV.pdf" download class="relative inline-flex items-center justify-center px-8 py-3 font-medium text-white bg-white/5 border border-cyan-500/50 rounded-lg backdrop-blur-md overflow-hidden group hover:bg-cyan-500/10 transition-all">
+            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+            <span class="relative">Descargar CV</span>
+        </a>
+
+        <!-- Link para la Llave Pública -->
+        <a href="/public_key.asc" download class="relative inline-flex items-center justify-center px-8 py-3 font-medium text-white bg-white/5 border border-purple-500/50 rounded-lg backdrop-blur-md overflow-hidden group hover:bg-purple-500/10 transition-all shadow-[0_0_10px_rgba(168,85,247,0.2)]">
+            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-purple-400/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+            <span class="relative">Mi llave Pública</span>
+        </a>
+    </div>
+</section>
